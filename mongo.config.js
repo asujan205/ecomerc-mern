@@ -1,0 +1,12 @@
+const mongoose= require('mongoose');
+const url="mongodb://127.0.0.1:27017/Ecomerce"
+mongoose.connect(url,{autoCreate:true
+,autoIndex:true,useUnifiedTopology:true},(err)=>{
+    if(err){
+        console.log('error occured')
+       console.log(err)
+    }
+    else{
+        console.log("connection established")
+    }
+});
