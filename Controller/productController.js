@@ -22,5 +22,26 @@ const createProduct = async(req,res)=>{
 		product_description: 'Sample description',
 	})
    const createdProduct= await Product.save()
+   res.json(createProduct)
     
+}
+const getProductByid=async(req,res)=>{
+   const product = await Product.findById(req.prams.id)
+   if(product){
+      res.json(product)
+   }else{
+      console.log('product not found')
+   }
+}
+//@desc delete single product
+//@ delete/product/:id
+const deleteProduct =async(req,res)=>{
+   const product= await Product.findById(req.prams.id)
+    if(product){
+       await product.remove()
+       res.json(product)
+    }
+    else{
+       console.log('product caant found')
+    }
 }
