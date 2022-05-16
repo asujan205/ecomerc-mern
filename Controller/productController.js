@@ -1,5 +1,7 @@
 const Product=require('../model/products')
-const getProducts=async(req,res)=>{
+import asyncHandler from 'express-async-handler'
+
+const getProducts=asyncHandler(async(req,res)=>{
     try{
             const product = await Product.find()
          res.json(product)
@@ -8,8 +10,8 @@ const getProducts=async(req,res)=>{
            console.log(err)
          } 
 
-}
-const createProduct = async(req,res)=>{
+})
+const createProduct = asyncHandler(async(req,res)=>{
    const product = new Product({
 		product_name: 'Sample name',
 		product_price: 0,
@@ -24,19 +26,19 @@ const createProduct = async(req,res)=>{
    const createdProduct= await Product.save()
    res.json(createProduct)
     
-}
-const getProductByid=async(req,res)=>{
+})
+const getProductByid=asyncHandler(async(req,res)=>{
    const product = await Product.findById(req.prams.id)
    if(product){
       res.json(product)
    }else{
       console.log('product not found')
    }
-}
+})
 //@desc delete single product
 //@ delete/product/:id
-const deleteProduct =async(req,res)=>{
-   const product= await Product.findById(req.prams.id)
+const deleteProduct =asyncHandler(async(req,res)=>{
+   const product= await Product.findById(req.params.id)
     if(product){
        await product.remove()
        res.json(product)
@@ -44,4 +46,39 @@ const deleteProduct =async(req,res)=>{
     else{
        console.log('product caant found')
     }
+})
+const updateProduct = asyncHandler(async(req,res)=>{
+
+   const product= await product.findById(req.params.id)
+	const {
+		name,
+		price,
+		description,
+		image,
+		brand,
+		category,
+		countInStock,
+	} = req.body
+   if(product){
+      product.product_name=name,
+      product.product_price=price,
+      product.product_description=description,
+      product.product_image=image,
+      product.product_brand=brand,
+      product.product_category=category,
+      product.product_countInStock=countInStock
+    const updatedProduct=   await product.save()
+    res.json(updatedProduct)
+   }
+   else{
+     console.log('product doesnt exits')
+   }
+
+})
+export {
+	getProducts,
+	getProductByid,
+	deleteProduct,
+	createProduct,
+	updateProduct,
 }
