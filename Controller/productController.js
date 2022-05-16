@@ -21,5 +21,6 @@ const createProduct = async(req,res)=>{
 		product_numReviews: 0,
 		product_description: 'Sample description',
 	})
+   const createdProduct= await Product.save()
     
 }
