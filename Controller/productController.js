@@ -1,5 +1,5 @@
-const Product=require('../model/products')
 import asyncHandler from 'express-async-handler'
+import Product from '../model/products.js'
 
 const getProducts=asyncHandler(async(req,res)=>{
     try{
@@ -11,7 +11,7 @@ const getProducts=asyncHandler(async(req,res)=>{
          } 
 
 })
-const createProduct = asyncHandler(async(req,res)=>{
+const Productcreate = asyncHandler(async(req,res)=>{
    const product = new Product({
 		product_name: 'Sample name',
 		product_price: 0,
@@ -75,10 +75,11 @@ const updateProduct = asyncHandler(async(req,res)=>{
    }
 
 })
-export {
+export  default{
 	getProducts,
 	getProductByid,
 	deleteProduct,
-	createProduct,
+   Productcreate
+	,
 	updateProduct,
 }

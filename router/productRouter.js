@@ -1,16 +1,17 @@
-const express = require('express')
+import express from 'express'
 import {
 	getProducts,
 	getProductByid,
 	deleteProduct,
-	createProduct,
-	updateProduct
+ Productcreate
+	,
+	updateProduct,
 	
-} from '../controllers/productController.js'
+} from '../Controller/productController.js'
 
 const router =express.Router()
 router.route('/').get(getProducts)
-router.route('/').post(createProduct)
+router.route('/').post(Productcreate)
 router
 	.route('/:id')
 	.get(getProductById)

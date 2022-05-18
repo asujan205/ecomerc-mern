@@ -1,7 +1,7 @@
-const express = require('express')
+import express from 'express'
 const app = express()
-const connect=require('./mongo.config')
-const ProductRouter=require('./router/productRouter')
+import './mongo.config.js' 
+import ProductRouter from './router/productRouter.js '
 app.use(express.json())
 app.use('/product',ProductRouter)
 app.get('/sujan',(req,res)=>{

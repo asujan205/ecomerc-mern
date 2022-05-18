@@ -37,4 +37,4 @@ timestamps: true,
 }
 )
 
-module.exports=mongoose.model('product',ProductSchema)
+export default mongoose.model('product',ProductSchema)

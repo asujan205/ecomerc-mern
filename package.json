@@ -1,8 +1,8 @@
 {
   "name": "ecommerce",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon index.js"
   },
@@ -13,5 +13,7 @@
     "express-async-handler": "^1.2.0",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.3"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
