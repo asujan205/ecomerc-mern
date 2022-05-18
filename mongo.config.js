@@ -1,4 +1,4 @@
-const mongoose= require('mongoose');
+import mongoose from "mongoose";
 const url="mongodb://127.0.0.1:27017/Ecomerce"
 mongoose.connect(url,{autoCreate:true
 ,autoIndex:true,useUnifiedTopology:true},(err)=>{

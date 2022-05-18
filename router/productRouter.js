@@ -14,7 +14,7 @@ router.route('/').get(getProducts)
 router.route('/').post(Productcreate)
 router
 	.route('/:id')
-	.get(getProductById)
+	.get(getProductByid)
 	.delete(deleteProduct)
 	.put(updateProduct)
-module.exports=router 
+export default router

@@ -75,7 +75,7 @@ const updateProduct = asyncHandler(async(req,res)=>{
    }
 
 })
-export  default{
+export  {
 	getProducts,
 	getProductByid,
 	deleteProduct,
