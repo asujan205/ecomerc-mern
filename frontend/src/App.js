@@ -5,9 +5,11 @@ import './App.css';
 import { listProducts } from './actions/productactions';
 function App() {
   const dispatch = useDispatch()
-  const productList = useSelector(state => state.productList)
-  const products = productList
-  console.log(products)
+  const productList = useSelector(state => state.productListReducer)
+ console.log(productList)
+ const {loading,error,products} = productList
+
+  
   useEffect(()=>{
     dispatch(listProducts())
   },[dispatch])
@@ -25,15 +27,15 @@ function App() {
   // })
   return (
    <div>
-   {/* { products.map(product =>(
+    { products.map(product =>(
                              <div>
                                     <p>{product._id}</p>
-                                    <p>{product.name}</p>
+                                    <p>{product.product_name}</p>
                                     <p>{product.price}</p>
-                                    <p>{product.category.join(' | ')}</p> 
+                                    <p>{product.product_category}</p> 
                                   
    </div>
-   ))} */}
+   ))} 
    </div>
   );
 }
