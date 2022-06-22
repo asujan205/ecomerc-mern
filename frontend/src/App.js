@@ -28,11 +28,13 @@ function App() {
   return (
    <div>
     { products.map(product =>(
-                             <div>
+                             <div className>
+                              <div key={product._id} >
                                     <p>{product._id}</p>
                                     <p>{product.product_name}</p>
                                     <p>{product.price}</p>
                                     <p>{product.product_category}</p> 
+                                    </div>
                                   
    </div>
    ))} 
